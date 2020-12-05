@@ -1,14 +1,14 @@
 def solve(map, x_shift, y_shift)
   width = map[0].length
-	map.each_with_index
-		.select{ |row, i| i % y_shift == 0 }
-		.map {|row, i| row[ ((i / y_shift) * x_shift) % width  ] }
-		.select{ |x| x == '#' }
-		.count
+  map.each_with_index
+    .select{ |row, i| i % y_shift == 0 }
+    .map {|row, i| row[ ((i / y_shift) * x_shift) % width  ] }
+    .select{ |x| x == '#' }
+    .count
 end
 
 def solve_product(map, shifts)
-	shifts.map{ |xs,ys| solve(map, xs, ys) }.reduce(:*)
+  shifts.map{ |xs,ys| solve(map, xs, ys) }.reduce(:*)
 end
 
 # Needed for both tests and solution

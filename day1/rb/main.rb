@@ -7,12 +7,12 @@ ds = Set[]
 
 # Product of two inputs summing to 2020
 nums.each do |num|
-		diff = 2020 - num
-		if ds.include?(num)
-			puts num * diff
-			break
-		end
-		ds.add(diff)
+    diff = 2020 - num
+    if ds.include?(num)
+      puts num * diff
+      break
+    end
+    ds.add(diff)
 end
 
 # Product of three inputs summing to 2020
