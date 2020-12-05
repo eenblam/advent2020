@@ -11,4 +11,16 @@ raise "Part 1 test 3 failed" unless find_seat('FFFBBBFRRR') == [14, 7, 119]
 raise "Part 1 test 4 failed" unless find_seat('BBFFBBFRLL') == [102, 4, 820]
 
 passes = IO.readlines('./input', chomp: true)
+# Part 1
 puts passes.map{|pass| find_seat(pass)[2]}.max
+
+# Part 2
+seats = passes.map{|pass| find_seat(pass)}.map(&:last).sort
+seats.each_with_index do |seat, i|
+	# Assume well-behaved inputs, i.e. we'll complete before indexing out of bounds
+	next_seat = seats[i+1]
+	if next_seat - seat == 2
+		puts seat + 1
+		exit
+	end
+end
